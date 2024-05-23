@@ -1,10 +1,42 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
+import {
+  faHouse,
+  faBurger,
+  faCartShopping,
+  faUser,
+} from "@fortawesome/free-solid-svg-icons";
 function Footer() {
   return (
     <div className="FooterBar">
-      <h1>1</h1>
-      <h1>2</h1>
-      <h1>3</h1>
-      <h1>4</h1>
+      <Link to="/">
+        <FontAwesomeIcon
+          icon={faHouse}
+          style={{ width: "1em" }}
+          className="footerIcons"
+        />
+      </Link>
+      <Link to="/ourmenu">
+        <FontAwesomeIcon
+          icon={faBurger}
+          style={{ width: "1em" }}
+          className="footerIcons"
+        />
+      </Link>
+      <Link to="/cart">
+        <FontAwesomeIcon
+          icon={faCartShopping}
+          style={{ width: "1em" }}
+          className="footerIcons"
+        />
+      </Link>
+      <Link to="/profile">
+        <FontAwesomeIcon
+          icon={faUser}
+          style={{ width: "1em" }}
+          className="footerIcons"
+        />
+      </Link>
     </div>
   );
 }
