@@ -119,10 +119,59 @@
       "description": "Classic crispy fries served with ketchup.",
       "category": "sides",
       "image": "./images/fries.png"
+    },
+    {
+      "id": "17",
+      "name": "Mer Apelsin",
+      "price": 1.59,
+      "description": "Best drink",
+      "image": "./images/merapelsin.png",
+      "category": "drinks"
+    },
+    {
+      "id": "18",
+      "name": "Fanta Exotic",
+      "price": 1.59,
+      "description": "Best drink",
+      "image": "./images/fantaexotic.png",
+      "category": "drinks"
+    },
+    {
+      "id": "19",
+      "name": "Fanta Lemon",
+      "price": 1.59,
+      "description": "Best drink",
+      "image": "./images/fantalemon.png",
+      "category": "drinks"
+    },
+    {
+      "id": "20",
+      "name": "Redbull",
+      "price": 1.59,
+      "description": "Nasty",
+      "image": "./images/redbull.png",
+      "category": "drinks"
+    },
+    {
+      "id": "21",
+      "name": "Trocadero",
+      "price": 1.59,
+      "description": "Best drink",
+      "image": "./images/trocadero.png",
+      "category": "drinks"
+    },
+    {
+      "id": "22",
+      "name": "cleandrink",
+      "price": 1.59,
+      "description": "Clean drink",
+      "image": "./images/cleandrink.png",
+      "category": "drinks"
     }
   ],
   "users": [
     {
+      "id": "1",
       "username": "user",
       "password": "password",
       "favorites": [

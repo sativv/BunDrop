@@ -1,40 +1,56 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
 import {
   faHouse,
   faBurger,
   faCartShopping,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
+import { Link, useLocation } from "react-router-dom";
+
 function Footer() {
+  const location = useLocation();
+
+  const isActivePage = (path) => {
+    return location.pathname === path ? "activeIcon" : "";
+  };
   return (
-    <div className="FooterBar">
-      <Link to="/">
+    <div className="FooterBar ">
+      <Link to="/" className={isActivePage("/ourmenu")}>
         <FontAwesomeIcon
           icon={faHouse}
-          style={{ width: "1em" }}
-          className="footerIcons"
+          size="2x"
+          className={`footerIcons ${
+            isActivePage("/") ? "activeIconStyle" : "inactiveIconStyle"
+          }`}
         />
       </Link>
       <Link to="/ourmenu">
         <FontAwesomeIcon
           icon={faBurger}
-          style={{ width: "1em" }}
-          className="footerIcons"
+          size="2x"
+          className={`footerIcons ${
+            isActivePage("/ourmenu") ? "activeIconStyle" : "inactiveIconStyle"
+          }`}
         />
       </Link>
       <Link to="/cart">
         <FontAwesomeIcon
           icon={faCartShopping}
+          size="2x"
           style={{ width: "1em" }}
-          className="footerIcons"
+          className={`footerIcons ${
+            isActivePage("/cart") ? "activeIconStyle" : "inactiveIconStyle"
+          }`}
         />
       </Link>
       <Link to="/login">
         <FontAwesomeIcon
           icon={faUser}
+          size="2x"
           style={{ width: "1em" }}
-          className="footerIcons"
+          className={`footerIcons ${
+            isActivePage("/login") ? "activeIconStyle" : "inactiveIconStyle"
+          }`}
         />
       </Link>
     </div>

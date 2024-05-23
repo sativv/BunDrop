@@ -24,8 +24,8 @@ function Home() {
       </div>
       <h2>Our Bestsellers</h2>
       <div className="bestSellers">
-        {firstFour.map((product, index) => (
-          <Product key={{ index }} product={product}></Product>
+        {firstFour.map((product) => (
+          <Product key={product.id} product={product}></Product>
         ))}
         ;
       </div>
