@@ -1,0 +1,137 @@
+{
+  "menu": [
+    {
+      "id": 1,
+      "name": "Classic Burger",
+      "price": 8.99,
+      "description": "A classic beef burger with lettuce, tomato, and cheese.",
+      "category": "burgers",
+      "image": "./images/classicburger.png"
+    },
+    {
+      "id": 2,
+      "name": "Sweet Potato Fries",
+      "price": 4.99,
+      "description": "Crispy sweet potato fries topped with fresh parsley.",
+      "category": "sides",
+      "image": "./images/sweetfries.png"
+    },
+    {
+      "id": 3,
+      "name": "Vegetarian Burger",
+      "price": 9.99,
+      "description": "A delicious vegetarian burger made with chickpeas, mushrooms, and spices.",
+      "category": "burgers",
+      "image": "./images/veganburger.png"
+    },
+    {
+      "id": 4,
+      "name": "Onion Rings",
+      "price": 3.99,
+      "description": "Crispy battered onion rings served with a tangy dipping sauce.",
+      "category": "sides",
+      "image": "./images/onionrings.png"
+    },
+    {
+      "id": 5,
+      "name": "BBQ Bacon Burger",
+      "price": 10.99,
+      "description": "A juicy burger topped with BBQ sauce, crispy bacon, and cheddar cheese.",
+      "category": "burgers",
+      "image": "./images/bbqburger.png"
+    },
+    {
+      "id": 6,
+      "name": "Garlic Parmesan Fries",
+      "price": 5.99,
+      "description": "Crispy fries tossed with garlic, parmesan cheese, and herbs.",
+      "category": "sides",
+      "image": "./images/parmesanfries.png"
+    },
+    {
+      "id": 7,
+      "name": "Chili Burger",
+      "price": 9.49,
+      "description": "A spicy burger topped with chipitlemayo, cheddar chsse and fresh chili.",
+      "category": "burgers",
+      "image": "./images/chiliburger.png"
+    },
+    {
+      "id": 9,
+      "name": "Double Cheeseburger",
+      "price": 12.99,
+      "description": "Two beef patties layered with melted cheese, lettuce, and pickles.",
+      "category": "burgers",
+      "image": "./images/cheeseburger.png"
+    },
+    {
+      "id": 10,
+      "name": "Chili Cheese Fries",
+      "price": 6.99,
+      "description": "Crispy fries topped with homemade chili and melted cheese.",
+      "category": "sides",
+      "image": "./images/cheesyfries.png"
+    },
+    {
+      "id": 11,
+      "name": "Turkey Burger",
+      "price": 9.49,
+      "description": "A lean turkey patty served on a whole wheat bun with lettuce and tomato.",
+      "category": "burgers",
+      "image": "./images/turkeyburger.png"
+    },
+    {
+      "id": 12,
+      "name": "Loaded Fries",
+      "price": 7.99,
+      "description": "Crispy fries chips topped with melted cheese, jalapeños, sour cream, and salsa.",
+      "category": "sides",
+      "image": "./images/loadedfries.png"
+    },
+    {
+      "id": 13,
+      "name": "Chicken Wings",
+      "price": 5.99,
+      "description": "Chicken wings glazed in barbeque sauce.",
+      "category": "sides",
+      "image": "./images/chickenwings.png"
+    },
+    {
+      "id": 14,
+      "name": "Fried Corn",
+      "price": 2.49,
+      "description": "Fresh corn o served with butter and salt.",
+      "category": "sides",
+      "image": "./images/corn.png"
+    },
+    {
+      "id": 15,
+      "name": "Side Salad",
+      "price": 3.49,
+      "description": "A refreshing sallad with tomatoes, ceasardressing, tomatoes and onion.",
+      "category": "sides",
+      "image": "./images/salad.png"
+    },
+    {
+      "id": 16,
+      "name": "French Fries",
+      "price": 3.49,
+      "description": "Classic crispy fries served with ketchup.",
+      "category": "sides",
+      "image": "./images/fries.png"
+    }
+  ],
+  "users": [
+    {
+      "username": "user",
+      "password": "password",
+      "orders": [
+        {
+          "orderDate": "22/02/24",
+          "totalPrice": "24",
+          "items": ["CheeseBurger", "Fries", "Coleslaw"]
+        }
+      ]
+    }
+  ]
+}

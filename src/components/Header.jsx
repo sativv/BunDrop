@@ -1,7 +1,7 @@
 function Header() {
   return (
     <div className="header">
-      <img src="./images/logo.png" className="logo" />
+      <img src="./images/logo.png" className="logo" alt="company logotype" />
     </div>
   );
 }
