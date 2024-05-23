@@ -30,7 +30,7 @@ function Footer() {
           className="footerIcons"
         />
       </Link>
-      <Link to="/profile">
+      <Link to="/login">
         <FontAwesomeIcon
           icon={faUser}
           style={{ width: "1em" }}
