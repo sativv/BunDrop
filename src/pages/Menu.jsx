@@ -5,6 +5,8 @@ import Product from "../components/Product";
 
 function Menu() {
   const [menu, setMenuItems] = useState([]);
+  let [filteredMenu, setFilteredMenu] = useState(null);
+  let [currentFilter, setCurrentFilter] = useState("");
 
   useEffect(() => {
     fetch("http://localhost:3000/menu")
@@ -13,19 +15,77 @@ function Menu() {
         setMenuItems(menuData);
       });
   }, []);
+
+  function setFilters(item) {
+    let filter = menu.filter((product) => product.category.includes(item));
+    setFilteredMenu(filter);
+    setCurrentFilter(item);
+
+    if (filteredMenu != null) {
+      setFilteredMenu(null);
+      setCurrentFilter(item);
+    }
+  }
+
+  function filterBurgers() {
+    if (currentFilter === "burgers") {
+      setFilteredMenu(null);
+      setCurrentFilter("");
+    } else {
+      setFilters("burgers");
+    }
+  }
+  function filterDrinks() {
+    if (currentFilter === "drinks") {
+      setFilteredMenu(null);
+      setCurrentFilter("");
+    } else {
+      setFilters("drinks");
+    }
+  }
+
+  function filterSides() {
+    if (currentFilter === "sides") {
+      setFilteredMenu(null);
+      setCurrentFilter("");
+    } else {
+      setFilters("sides");
+    }
+  }
   return (
     <>
       <Header></Header>
       <div className="menuTop">
         <h1>Our Menu</h1>
         <div className="menuButtonContainer">
-          <button className="menuButtons">Burgers</button>
-          <button className="menuButtons">Sides</button>
-          <button className="menuButtons">Drinks</button>
+          <button
+            className={`menuButtons ${
+              currentFilter === "burgers" ? "filtering" : ""
+            }`}
+            onClick={filterBurgers}
+          >
+            Burgers
+          </button>
+          <button
+            className={`menuButtons ${
+              currentFilter === "sides" ? "filtering" : ""
+            }`}
+            onClick={filterSides}
+          >
+            Sides
+          </button>
+          <button
+            className={`menuButtons ${
+              currentFilter === "drinks" ? "filtering" : ""
+            }`}
+            onClick={filterDrinks}
+          >
+            Drinks
+          </button>
         </div>
       </div>
       <div className="menuContainer">
-        {menu.map((product) => (
+        {(filteredMenu || menu).map((product) => (
           <Product key={product.id} product={product}></Product>
         ))}
       </div>
