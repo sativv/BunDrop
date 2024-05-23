@@ -1,13 +1,64 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #524b4b;
 }
 
+.logo {
+  width: 50px;
+  height: 50px;
+  margin-left: 15px;
+}
+
+.header {
+  background-color: #605b5b;
+  display: flex;
+  height: 60px;
+  align-items: center;
+  border-bottom: 3px solid black;
+}
+
+.homeLogo {
+  height: 150px;
+  width: 150px;
+  margin-top: 25px;
+}
+
+.productCard {
+  height: 150px;
+  width: 150px;
+  background-color: #766262;
+  display: flex;
+  margin: 10px;
+  justify-content: center;
+}
+
+.productDetails {
+  display: flex;
+  flex-direction: column;
+}
+.bestSellers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.FooterBar {
+  height: 60px;
+  background-color: #766262;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  border-top: 3px solid black;
+  bottom: 0;
+  width: 100%;
 }
