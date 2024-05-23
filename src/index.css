@@ -7,6 +7,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #524b4b;
   height: 100%;
+  margin-bottom: 80px;
+  margin-top: 50px;
 }
 
 .logo {
@@ -19,10 +21,18 @@ body {
   background-color: #605b5b;
   display: flex;
   height: 60px;
+  width: 100%;
   align-items: center;
   border-bottom: 3px solid black;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
 }
 
+.linkstyle {
+  text-decoration: none;
+  color: black;
+}
 .homeLogo {
   height: 150px;
   width: 150px;
@@ -37,6 +47,7 @@ body {
   margin: 10px;
   justify-content: center;
   border: 1px solid black;
+  text-decoration: none;
 }
 
 .productDetails {
@@ -61,7 +72,7 @@ code {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  position: absolute;
+  position: fixed;
   border-top: 3px solid black;
   bottom: 0;
   width: 100%;
@@ -74,6 +85,7 @@ code {
 .menuTop {
   display: flex;
   flex-direction: column;
+  text-align: center;
 }
 
 .menuButtons {
@@ -112,4 +124,17 @@ code {
 .menuContainer {
   display: flex;
   flex-wrap: wrap;
+}
+
+.addToCartButton {
+  width: 150px;
+  height: 40px;
+  font-weight: 600;
+  background-color: #766262;
+  border: 2px solid black;
+}
+
+.addToCartButton:hover {
+  color: white;
+  border: 2px solid white;
 }
