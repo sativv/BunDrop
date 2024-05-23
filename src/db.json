@@ -125,11 +125,9 @@
     {
       "username": "user",
       "password": "password",
-      "orders": [
+      "favorites": [
         {
-          "orderDate": "22/02/24",
-          "totalPrice": "24",
-          "items": ["CheeseBurger", "Fries", "Coleslaw"]
+          "productId": "1"
         }
       ]
     }
