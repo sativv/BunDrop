@@ -135,6 +135,10 @@ code {
   border: 1px solid black;
 }
 
+.filtering {
+  border: 2px solid #76abae;
+}
+
 .menuButtonContainer {
   display: flex;
 
