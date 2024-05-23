@@ -13,16 +13,17 @@ function Header() {
         />
       </Link>
 
-      <Link to={"/orders"} className="linkstyle">
+      {/* <Link to={"/orders"} className="linkstyle">
         <div className="headerRight">
           <h3>Orders</h3>
           <FontAwesomeIcon
             icon={faCashRegister}
             style={{ width: "1em" }}
             className="orderIcon"
+            size="2x"
           />
         </div>
-      </Link>
+      </Link> */}
     </div>
   );
 }
