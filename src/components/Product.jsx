@@ -4,23 +4,23 @@ function Product({ product }) {
   function RemoveFromCart() {}
   function AddToCart() {}
   return (
-    <div className="productCard">
-      <div className="cardLeft">
-        <h4 className="productName">{product.name}</h4>
-        <p className="productPrice">{product.price} €</p>
-      </div>
-      <Link to={`/product/${product.id}`} className="linkstyle">
+    <Link to={`/product/${product.id}`} className="linkstyle">
+      <div className="productCard">
+        <div className="cardLeft">
+          <h3 className="productName">{product.name}</h3>
+          <p className="productPrice">{product.price} €</p>
+        </div>
         <img src={product.image} className="productImage" alt="product" />
-      </Link>
-      <div className="cartButtonContainer">
+        {/* <div className="cartButtonContainer">
         <button className="cartButton" onClick={AddToCart}>
-          +
+        +
         </button>
         <button className="cartButton" onClick={RemoveFromCart}>
-          -
+        -
         </button>
+      </div> */}
       </div>
-    </div>
+    </Link>
   );
 }
 
