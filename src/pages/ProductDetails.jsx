@@ -1,16 +1,22 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { useParams } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
+import { shopCartContext } from "../App";
 
 function ProductDetails() {
   const [product, setProduct] = useState({});
   const { productId } = useParams();
+  const { shopCart, setShopCart } = useContext(shopCartContext);
   const [itemQuantity, setItemQuantity] = useState(1);
 
   const totalPrice = (itemQuantity * product.price).toFixed(2);
-  function handleSubmit() {
-    // add item to cart
+
+  function handleSubmit(e) {
+    setShopCart(shopCart, itemQuantity);
   }
 
   function handleDecrease() {
@@ -34,9 +40,14 @@ function ProductDetails() {
     <>
       <Header></Header>
       <div className="menuTop">
+        <div className="backButtonContainer">
+          <Link to={"/ourmenu"}>
+            <FontAwesomeIcon icon={faArrowLeftLong} className="backButton" />
+          </Link>
+        </div>
         <h1>{product.name}</h1>
         <img src={"." + product.image} className="productDetailsImage" />
-        <h3>{product.description}</h3>
+        <h3 className="prodDescription">{product.description}</h3>
         <h3>{product.price} €</h3>
       </div>
       <hr />
