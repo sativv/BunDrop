@@ -7,11 +7,18 @@ import CartItem from "../components/CartItem";
 
 function Cart() {
   const { shopCart } = useContext(shopCartContext);
+  let totalPriceValue = 0;
+
+  if (shopCart.length > 0) {
+    totalPriceValue = calculateTotalPrice(shopCart).toFixed(2);
+  }
+
   console.log(shopCart[0]);
   if (shopCart.length > 0 && shopCart) {
     return (
       <>
         <Header></Header>
+
         <div className="cartContainer">
           <div className="cartItems">
             {shopCart.map((product) => (
@@ -22,7 +29,7 @@ function Cart() {
 
           <div className="totalPrice">
             <h3>total price</h3>
-            <p>{calculateTotalPrice(shopCart)} €</p>
+            <p>{totalPriceValue} €</p>
           </div>
           <div className="checkoutButton">
             <button className="menuButtons cbButton">Go to checkout</button>

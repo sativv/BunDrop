@@ -1,33 +1,39 @@
-function CartItem({ product }) {
-  console.log(product.qty);
-  console.log(product.price);
-  return (
-    <div className="cartItemContainer">
-      <div className="cartTop">
-        <h3>{product.name}</h3>
-        <img
-          src={`${process.env.PUBLIC_URL}${product.image}`}
-          alt="image of product"
-          className="productImage cartItemImage"
-        />
-        <h3>{+product.price} €</h3>
-      </div>
+import { shopCartContext } from "../App";
+import { addItemToCart } from "../Funcs/Funcs";
+import { useContext, useState } from "react";
 
-      <div className="">
-        <div className="cartBottom">
-          <div className="shopcartBtnContainer">
-            <button className="cartButton">+</button>
-            <p className="quantInput">{product.qty}</p>
-            <button className="cartButton">-</button>
-          </div>
-          <div className="cartProductPrice">
-            <h3>{+product.price * +product.qty} €</h3>
-          </div>
-        </div>
-        <hr />
+function CartItem({ product }) {
+  const { shopCart, setShopCart } = useContext(shopCartContext);
+  const [itemQuantity, setItemQuantity] = useState(null);
+
+  function handleAddItem() {
+    if ((itemQuantity = 9)) {
+      return;
+    } else {
+      setItemQuantity(itemQuantity + 1);
+    }
+  }
+  function handleRemoveItem() {
+    if ((itemQuantity = 1)) {
+      // remove item from shoppingcart
+    } else {
+      setItemQuantity(itemQuantity - 1);
+    }
+  }
+  return (
+    <div className="cartItem">
+      <p className="cartProductName">{product.name}</p>
+      <div className="cartItemContainer">
+        <button className="cartButton" onClick={handleRemoveItem}>
+          -
+        </button>
+        <p className="quantInput">{product.qty}</p>
+        <button className="cartButton" onClick={handleAddItem}>
+          +
+        </button>
       </div>
+      <p className="price">{product.price * product.qty} €</p>
     </div>
   );
 }
-
 export default CartItem;

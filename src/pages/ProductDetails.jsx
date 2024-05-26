@@ -58,12 +58,13 @@ function ProductDetails() {
       <hr />
       <div className="productForm">
         <div className="quantButtonContainer">
-          <button className="quantityButtons" onClick={handleIncrease}>
-            +
-          </button>
-          <p className="quantInput">{itemQuantity}</p>
           <button className="quantityButtons" onClick={handleDecrease}>
             -
+          </button>
+
+          <p className="quantInput">{itemQuantity}</p>
+          <button className="quantityButtons" onClick={handleIncrease}>
+            +
           </button>
         </div>
         <p className="totalPriceDetails">{totalPrice} €</p>

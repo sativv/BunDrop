@@ -7,6 +7,7 @@ body {
   height: 100%;
   margin-bottom: 80px;
   margin-top: 50px;
+  overflow: hidden;
 }
 
 h1,
@@ -99,6 +100,7 @@ p {
   border: 2px solid #e1e1e1;
   color: #e1e1e1;
 }
+
 .bestSellers {
   display: flex;
   flex-wrap: wrap;
@@ -162,9 +164,8 @@ code {
   font-weight: 500;
   font-size: 20px;
   border-radius: 5px;
-  background-color: #1e1e1e;
+  background-color: transparent;
   color: #e1e1e1;
-  border: 2px solid #1e1e1e;
 }
 
 .quantityButtons {
@@ -260,17 +261,21 @@ code {
 }
 
 .cartContainer {
+  padding-bottom: 30px;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
 }
 
 .cartItems {
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: scroll;
+  max-height: 65vh;
+  min-height: 65vh;
+  margin-top: 25px;
 }
 
 .totalPrice {
@@ -289,34 +294,39 @@ code {
   justify-content: center;
   margin-top: 20px;
 }
+
 .cbButton {
   width: 150px;
 }
 
 .cartHr {
-  margin-top: 100px;
+  margin-top: 0px;
   width: 100%;
 }
-
-.cartTop {
+.cartItem {
   display: flex;
-  justify-content: space-evenly;
-  width: 100%;
-}
-
-.cartBottom {
-  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: space-around;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
 }
 
 .cartItemContainer {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
-.shopcartBtnContainer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.quantInput {
+  margin: 0 5px;
+}
+
+.price {
+  margin-left: 10px;
+}
+
+.cartProductName {
+  width: 100px;
+  overflow: hidden;
 }
