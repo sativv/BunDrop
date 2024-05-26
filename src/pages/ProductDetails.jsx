@@ -1,32 +1,37 @@
 import { useState, useEffect, useContext } from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { shopCartContext } from "../App";
+import { addItemToCart } from "../Funcs/Funcs";
 
 function ProductDetails() {
   const [product, setProduct] = useState({});
   const { productId } = useParams();
   const { shopCart, setShopCart } = useContext(shopCartContext);
   const [itemQuantity, setItemQuantity] = useState(1);
+  const nav = useNavigate();
 
   const totalPrice = (itemQuantity * product.price).toFixed(2);
 
   function handleSubmit(e) {
-    setShopCart(shopCart, itemQuantity);
+    setShopCart(addItemToCart(shopCart, product, itemQuantity));
+
+    // console.log(addItemToCart(shopCart, product, itemQuantity)[0]);
+    nav("/ourmenu");
   }
 
   function handleDecrease() {
-    if (itemQuantity != 1) {
+    if (itemQuantity !== 1) {
       setItemQuantity(itemQuantity - 1);
     }
   }
 
   function handleIncrease() {
-    if (itemQuantity != 9) {
+    if (itemQuantity !== 9) {
       setItemQuantity(itemQuantity + 1);
     }
   }
@@ -62,9 +67,10 @@ function ProductDetails() {
           </button>
         </div>
         <p className="totalPriceDetails">{totalPrice} €</p>
-        <form onSubmit={handleSubmit} className="quantForm">
-          <button className="menuButtons formButton">Add to Cart</button>
-        </form>
+
+        <button className="menuButtons formButton" onClick={handleSubmit}>
+          Add to Cart
+        </button>
       </div>
 
       <Footer></Footer>
