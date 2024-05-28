@@ -4,6 +4,8 @@ import { shopCartContext } from "../App";
 function CartItem({ product }) {
   const { shopCart, setShopCart } = useContext(shopCartContext);
 
+  const totalPriceValue = (product.qty * product.price).toFixed(2);
+
   function handleAddItem() {
     const updatedCart = shopCart.map((item) => {
       if (item.id === product.id) {
@@ -47,7 +49,7 @@ function CartItem({ product }) {
           +
         </button>
       </div>
-      <p className="price">{product.price * product.qty} €</p>
+      <p className="price">{totalPriceValue} €</p>
     </div>
   );
 }

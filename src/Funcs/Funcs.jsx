@@ -1,4 +1,4 @@
-export function addItemToCart(cart, item, quantity) {
+export function HandleCart(cart, item, quantity) {
   const existingProductIndex = cart.findIndex(
     (cartItem) => cartItem.id === item.id
   );

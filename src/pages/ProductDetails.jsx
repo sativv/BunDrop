@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { shopCartContext } from "../App";
-import { addItemToCart } from "../Funcs/Funcs";
+import { HandleCart } from "../Funcs/Funcs";
 
 function ProductDetails() {
   const [product, setProduct] = useState({});
@@ -18,7 +18,7 @@ function ProductDetails() {
   const totalPrice = (itemQuantity * product.price).toFixed(2);
 
   function handleSubmit(e) {
-    setShopCart(addItemToCart(shopCart, product, itemQuantity));
+    setShopCart(HandleCart(shopCart, product, itemQuantity));
 
     // console.log(addItemToCart(shopCart, product, itemQuantity)[0]);
     nav("/ourmenu");

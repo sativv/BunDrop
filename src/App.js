@@ -7,7 +7,10 @@ import "./App.css";
 import ProductDetails from "./pages/ProductDetails";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import Checkout from "./pages/Checkout";
 import { createContext, useState } from "react";
+import Swish from "./pages/Swish";
+import CreditCard from "./pages/CreditCard";
 
 export const shopCartContext = createContext();
 function App() {
@@ -24,6 +27,9 @@ function App() {
           <Route path="/product/:productId" element={<ProductDetails />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/swish" element={<Swish />} />
+          <Route path="/credit" element={<CreditCard />} />
         </Routes>
       </Router>
     </shopCartContext.Provider>
