@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { calculateTotalPrice } from "../Funcs/Funcs";
 import { shopCartContext } from "../App";
+import { Link } from "react-router-dom";
 function Swish() {
   const [phoneNumber, setPhoneNumber] = useState("");
   const { shopCart, setShopCart } = useContext(shopCartContext);
@@ -27,10 +28,12 @@ function Swish() {
               required
               className="telInput"
               placeholder="0766 12 34 56"
+              pattern="[09]{10}"
+              title="a 10 digit phone number is required"
             />
           </p>
           <div className="swishPrice">
-            <p>Amount</p>
+            <p>Amount : </p>
             <p>{price} €</p>
           </div>
           <button type="submit" className="sendPayButton">
@@ -38,7 +41,9 @@ function Swish() {
           </button>
         </form>
 
-        <p className="returnToCart">return to checkout</p>
+        <Link to={"/checkout"}>
+          <p className="returnToCart">return to checkout</p>
+        </Link>
       </div>
       <Footer />
     </div>
