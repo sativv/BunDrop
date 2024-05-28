@@ -1,25 +1,40 @@
+import { useContext } from "react";
 import { shopCartContext } from "../App";
-import { addItemToCart } from "../Funcs/Funcs";
-import { useContext, useState } from "react";
 
 function CartItem({ product }) {
   const { shopCart, setShopCart } = useContext(shopCartContext);
-  const [itemQuantity, setItemQuantity] = useState(null);
 
   function handleAddItem() {
-    if ((itemQuantity = 9)) {
-      return;
-    } else {
-      setItemQuantity(itemQuantity + 1);
-    }
+    const updatedCart = shopCart.map((item) => {
+      if (item.id === product.id) {
+        return {
+          ...item,
+          qty: item.qty + 1,
+        };
+      }
+      return item;
+    });
+    setShopCart(updatedCart);
   }
+
   function handleRemoveItem() {
-    if ((itemQuantity = 1)) {
-      // remove item from shoppingcart
+    if (product.qty === 1) {
+      const updatedCart = shopCart.filter((item) => item.id !== product.id);
+      setShopCart(updatedCart);
     } else {
-      setItemQuantity(itemQuantity - 1);
+      const updatedCart = shopCart.map((item) => {
+        if (item.id === product.id) {
+          return {
+            ...item,
+            qty: item.qty - 1,
+          };
+        }
+        return item;
+      });
+      setShopCart(updatedCart);
     }
   }
+
   return (
     <div className="cartItem">
       <p className="cartProductName">{product.name}</p>
@@ -36,4 +51,5 @@ function CartItem({ product }) {
     </div>
   );
 }
+
 export default CartItem;

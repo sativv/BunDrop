@@ -25,13 +25,13 @@ function ProductDetails() {
   }
 
   function handleDecrease() {
-    if (itemQuantity !== 1) {
+    if (itemQuantity < 1) {
       setItemQuantity(itemQuantity - 1);
     }
   }
 
   function handleIncrease() {
-    if (itemQuantity !== 9) {
+    if (itemQuantity < 9) {
       setItemQuantity(itemQuantity + 1);
     }
   }
