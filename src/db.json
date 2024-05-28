@@ -179,6 +179,21 @@
           "productId": "1"
         }
       ]
+    },
+    {
+      "id": "3611",
+      "username": "Frogger",
+      "password": "1234"
+    },
+    {
+      "id": "cb9d",
+      "username": "dock",
+      "password": "scripted1"
+    },
+    {
+      "id": "ab33",
+      "username": "tj",
+      "password": "asdasd1"
     }
   ]
 }

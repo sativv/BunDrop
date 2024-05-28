@@ -131,6 +131,17 @@ p {
   height: 40px;
   width: 300px;
 }
+.caBtn {
+  width: 300px;
+}
+
+.returnLink {
+  color: #e1e1e1;
+  text-decoration: none;
+  width: 275px;
+  text-align: left;
+  margin-top: 15px;
+}
 .ccbtn {
   width: 330px;
 }
@@ -418,6 +429,26 @@ code {
   height: 25px;
   margin-left: 15px;
 }
+
+.caInput {
+  background-color: transparent;
+  color: #e1e1e1;
+  height: 30px;
+  font-size: 16px;
+}
+.caLbl {
+  color: #e1e1e1;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+.caBtn {
+  background-color: transparent;
+  color: #e1e1e1;
+  height: 45px;
+  font-size: 18px;
+  margin-top: 15px;
+}
+
 .expInputM,
 .expInputY {
   width: 75px;
