@@ -4,14 +4,32 @@ import { shopCartContext } from "../App";
 import { useContext } from "react";
 import { calculateTotalPrice } from "../Funcs/Funcs";
 import CartItem from "../components/CartItem";
+import { useNavigate } from "react-router-dom";
 
 function Cart() {
   const { shopCart } = useContext(shopCartContext);
-  console.log(shopCart[0]);
+  const nav = useNavigate();
+
+  function handleNav() {
+    console.log(shopCart.length);
+    if (shopCart.length > 0) {
+      nav("/checkout");
+    } else {
+      nav("/ourmenu");
+    }
+  }
+
+  let totalPriceValue = 0;
+
+  if (shopCart.length > 0) {
+    totalPriceValue = calculateTotalPrice(shopCart).toFixed(2);
+  }
+
   if (shopCart.length > 0 && shopCart) {
     return (
       <>
         <Header></Header>
+
         <div className="cartContainer">
           <div className="cartItems">
             {shopCart.map((product) => (
@@ -22,10 +40,12 @@ function Cart() {
 
           <div className="totalPrice">
             <h3>total price</h3>
-            <p>{calculateTotalPrice(shopCart)} €</p>
+            <p>{totalPriceValue} €</p>
           </div>
           <div className="checkoutButton">
-            <button className="menuButtons cbButton">Go to checkout</button>
+            <button className="menuButtons cbButton" onClick={handleNav}>
+              Go to checkout
+            </button>
           </div>
         </div>
 
@@ -43,11 +63,13 @@ function Cart() {
           <hr className="cartHr" />
 
           <div className="totalPrice">
-            <h3>total price</h3>
-            <p>000</p>
+            <h3> </h3>
+            <p> </p>
           </div>
           <div className="checkoutButton">
-            <button className="menuButtons cbButton">Go to checkout</button>
+            <button className="menuButtons cbButton" onClick={handleNav}>
+              Go to Menu
+            </button>
           </div>
         </div>
 
