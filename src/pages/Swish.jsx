@@ -2,16 +2,42 @@ import { useContext, useState } from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { calculateTotalPrice } from "../Funcs/Funcs";
-import { shopCartContext } from "../App";
-import { Link } from "react-router-dom";
+import { shopCartContext, orderContext } from "../App";
+import { Link, useNavigate } from "react-router-dom";
+
 function Swish() {
   const [phoneNumber, setPhoneNumber] = useState("");
   const { shopCart, setShopCart } = useContext(shopCartContext);
+  const { curOrder, setCurOrder } = useContext(orderContext);
+  const nav = useNavigate();
 
   const price = calculateTotalPrice(shopCart);
   const handleSubmit = (event) => {
     // handle number input
     event.preventDefault();
+    const isConfirmed = window.confirm(
+      "Are you sure you want to send this payment and place your order?"
+    );
+    if (isConfirmed) {
+      console.log("accepted");
+      // create random delivery time
+      const deliveryTimeMinutes = Math.floor(Math.random() * 16) + 20;
+      // set order context
+      const newOrder = {
+        items: shopCart,
+        deliveryTime: deliveryTimeMinutes,
+      };
+      setCurOrder(newOrder);
+
+      // clear cart
+
+      setShopCart([]);
+
+      nav(`/orderstatus`);
+    } else {
+      event.preventDefault();
+      return;
+    }
   };
 
   return (
@@ -28,7 +54,7 @@ function Swish() {
               required
               className="telInput"
               placeholder="0766 12 34 56"
-              pattern="[09]{10}"
+              pattern="[0-9]{10}"
               title="a 10 digit phone number is required"
             />
           </p>

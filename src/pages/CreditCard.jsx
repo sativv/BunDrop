@@ -2,27 +2,71 @@ import { useContext, useState } from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { calculateTotalPrice } from "../Funcs/Funcs";
-import { shopCartContext } from "../App";
-import { Link } from "react-router-dom";
+import { shopCartContext, orderContext } from "../App";
+import { Link, useNavigate } from "react-router-dom";
 
 function CreditCardPayment() {
   const [cardNumber, setCardNumber] = useState("");
   const [expirationMonth, setExpirationMonth] = useState("");
   const [expirationYear, setExpirationYear] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const { curOrder, setCurOrder } = useContext(orderContext);
+  const { shopCart, setShopCart } = useContext(shopCartContext);
   const [cvc, setCVC] = useState("");
-  const { shopCart } = useContext(shopCartContext);
+  const nav = useNavigate();
 
   const price = calculateTotalPrice(shopCart);
 
   const handleSubmit = (event) => {
+    // handle number input
     event.preventDefault();
-    // Handle credit card payment submission
-    console.log("Credit card payment submitted!");
+    const isConfirmed = window.confirm(
+      "Are you sure you want to send this payment and place your order?"
+    );
+    if (isConfirmed) {
+      console.log("accepted");
+
+      const currentYear = new Date().getFullYear();
+      const currentMonth = new Date().getMonth() + 1;
+
+      if (
+        parseInt(expirationYear, 10) < currentYear ||
+        (parseInt(expirationYear, 10) === currentYear &&
+          parseInt(expirationMonth, 10) < currentMonth)
+      ) {
+        setErrorMessage("Please enter a valid expiration date.");
+        return;
+      }
+
+      // create random delivery time
+      const deliveryTimeMinutes = Math.floor(Math.random() * 16) + 20;
+      // set order context
+      const newOrder = {
+        items: shopCart,
+        deliveryTime: deliveryTimeMinutes,
+      };
+      setCurOrder(newOrder);
+
+      // clear cart
+
+      setShopCart([]);
+
+      nav(`/orderstatus`);
+    } else {
+      event.preventDefault();
+      return;
+    }
   };
 
   return (
     <div className="ccContainer">
       <Header />
+
+      {errorMessage && (
+        <div>
+          <p className="errorMessage">{errorMessage}</p>
+        </div>
+      )}
       <div>
         <form onSubmit={handleSubmit}>
           <div className="inputContainer">

@@ -11,27 +11,39 @@ import Checkout from "./pages/Checkout";
 import { createContext, useState } from "react";
 import Swish from "./pages/Swish";
 import CreditCard from "./pages/CreditCard";
+import OrderStatus from "./pages/Orderstatus";
 
 export const shopCartContext = createContext();
+export const userContext = createContext();
+export const orderContext = createContext();
+
 function App() {
   const [shopCart, setShopCart] = useState([]);
+  const [curUser, setCurUser] = useState(null);
+  const [curOrder, setCurOrder] = useState(null);
   return (
     <shopCartContext.Provider value={{ shopCart, setShopCart }}>
-      <Router>
-        <></>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/ourmenu" element={<Menu />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/product/:productId" element={<ProductDetails />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/swish" element={<Swish />} />
-          <Route path="/credit" element={<CreditCard />} />
-        </Routes>
-      </Router>
+      <userContext.Provider value={{ curUser, setCurUser }}>
+        <orderContext.Provider value={{ curOrder, setCurOrder }}>
+          <Router>
+            <></>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/ourmenu" element={<Menu />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/product/:productId" element={<ProductDetails />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/checkout" element={<Checkout />} />
+              <Route path="/swish" element={<Swish />} />
+              <Route path="/credit" element={<CreditCard />} />
+              <Route path="/orderstatus" element={<OrderStatus />} />
+              <Route path="/profile" element={<Profile />} />
+            </Routes>
+          </Router>{" "}
+        </orderContext.Provider>
+      </userContext.Provider>
     </shopCartContext.Provider>
   );
 }

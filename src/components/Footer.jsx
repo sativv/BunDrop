@@ -6,9 +6,13 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link, useLocation } from "react-router-dom";
+import { userContext } from "../App";
+import { useContext } from "react";
 
 function Footer() {
   const location = useLocation();
+
+  const { curUser } = useContext(userContext);
 
   const isActivePage = (path) => {
     return location.pathname === path ? "activeIcon" : "";
@@ -43,16 +47,29 @@ function Footer() {
           }`}
         />
       </Link>
-      <Link to="/login">
-        <FontAwesomeIcon
-          icon={faUser}
-          size="2x"
-          style={{ width: "1em" }}
-          className={`footerIcons ${
-            isActivePage("/login") ? "activeIconStyle" : "inactiveIconStyle"
-          }`}
-        />
-      </Link>
+      {curUser ? (
+        <Link to="/profile">
+          <FontAwesomeIcon
+            icon={faUser}
+            size="2x"
+            style={{ width: "1em" }}
+            className={`footerIcons ${
+              isActivePage("/profile") ? "activeIconStyle" : "inactiveIconStyle"
+            }`}
+          />
+        </Link>
+      ) : (
+        <Link to="/login">
+          <FontAwesomeIcon
+            icon={faUser}
+            size="2x"
+            style={{ width: "1em" }}
+            className={`footerIcons ${
+              isActivePage("/login") ? "activeIconStyle" : "inactiveIconStyle"
+            }`}
+          />
+        </Link>
+      )}
     </div>
   );
 }
