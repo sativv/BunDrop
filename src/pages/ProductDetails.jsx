@@ -3,9 +3,9 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { useNavigate, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeftLong, faStar } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import { shopCartContext } from "../App";
+import { shopCartContext, userContext } from "../App";
 import { HandleCart } from "../Funcs/Funcs";
 
 function ProductDetails() {
@@ -49,11 +49,11 @@ function ProductDetails() {
           <Link to={"/ourmenu"}>
             <FontAwesomeIcon icon={faArrowLeftLong} className="backButton" />
           </Link>
+          <FontAwesomeIcon icon={faStar} className="favIcon" />
         </div>
         <h1>{product.name}</h1>
         <img src={"." + product.image} className="productDetailsImage" />
         <h3 className="prodDescription">{product.description}</h3>
-        <h3>{product.price} €</h3>
       </div>
       <hr />
       <div className="productForm">
