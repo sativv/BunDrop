@@ -1,13 +1,14 @@
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import { shopCartContext } from "../App";
-import { useContext } from "react";
+import { shopCartContext, orderContext } from "../App";
+import { useContext, useEffect } from "react";
 import { calculateTotalPrice } from "../Funcs/Funcs";
 import CartItem from "../components/CartItem";
 import { useNavigate } from "react-router-dom";
 
 function Cart() {
   const { shopCart } = useContext(shopCartContext);
+  const { curOrder } = useContext(orderContext);
   const nav = useNavigate();
 
   function handleNav() {
@@ -18,6 +19,12 @@ function Cart() {
       nav("/ourmenu");
     }
   }
+
+  useEffect(() => {
+    if (curOrder !== null) {
+      nav("/orderstatus");
+    }
+  }, [curOrder, nav]);
 
   let totalPriceValue = 0;
 
