@@ -11,6 +11,7 @@ import { useContext } from "react";
 
 function Footer() {
   const location = useLocation();
+
   const { curUser } = useContext(userContext);
 
   const isActivePage = (path) => {

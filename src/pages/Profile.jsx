@@ -18,34 +18,35 @@ function Profile() {
       });
   }, []);
 
+  useEffect(() => {
+    // redirect if user is not logged in
+    if (!curUser) {
+      nav("/login");
+    }
+  }, [curUser, nav]);
+
   const curUserFavorites = curUser ? curUser.favorites : [];
 
   const favoriteItems = menu.filter((item) =>
-    // curUserFavorites.some((favorite) => favorite.productId === item.id)
     curUserFavorites.includes(item.id)
   );
 
-  function signOut() {
-    // Clear the current user and navigate to the login page
-    setCurUser(null);
-    nav("/login");
+  if (!curUser) {
+    return null;
   }
-
-  // Extract curUserFavorites from curUser
 
   return (
     <>
-      <Header></Header>
-      <h1>This is the profile </h1>
-      <h2>User Favorites:</h2>
-      <ul>
+      <div className="profileTop">
+        <Header></Header>
+        <h2>Your Favorites:</h2>
+      </div>
+      <div className="favoriteContainer">
         {favoriteItems.map((product) => (
           <Product key={product.id} product={product}></Product>
         ))}
-      </ul>
-      <button onClick={signOut} className="menuButtons">
-        Logout
-      </button>
+      </div>
+
       <Footer></Footer>
     </>
   );

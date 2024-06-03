@@ -47,6 +47,10 @@ p {
 .orderIcon {
   margin-left: 15px;
 }
+
+.cashRegisterIcon {
+  color: #bb86fc;
+}
 .linkstyle {
   text-decoration: none;
   color: black;
@@ -494,4 +498,54 @@ code {
 .errorMessage {
   color: red;
   font-size: 16px;
+}
+
+.orderStatusContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  height: 100%;
+}
+.orderStatusItemContainer {
+  width: 100%;
+  margin-left: 15px;
+}
+
+.hrContainer {
+  width: 100%;
+  margin: 0;
+}
+.bottomOrderStatus {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.profileTop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.favoriteContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.signoutBtn {
+  background-color: transparent;
+  color: #bb86fc;
+  font-weight: 600;
+  border: none;
+  font-size: 16px;
+  margin-right: 15px;
+}
+
+.signoutBtn:hover {
+  color: red;
+  cursor: pointer;
 }

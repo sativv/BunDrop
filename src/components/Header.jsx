@@ -1,8 +1,17 @@
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCashRegister } from "@fortawesome/free-solid-svg-icons";
+import { userContext, orderContext } from "../App";
+import { useContext } from "react";
 
 function Header() {
+  const { curUser, setCurUser } = useContext(userContext);
+  const { curOrder } = useContext(orderContext);
+
+  function handleLogout() {
+    setCurUser(null);
+  }
+
   return (
     <div className="header">
       <Link to={"/"}>
@@ -12,18 +21,21 @@ function Header() {
           alt="company logotype"
         />
       </Link>
-
-      {/* <Link to={"/orders"} className="linkstyle">
-        <div className="headerRight">
-          <h3>Orders</h3>
+      <Link to={"/orderstatus"}>
+        {curOrder && (
           <FontAwesomeIcon
             icon={faCashRegister}
-            style={{ width: "1em" }}
-            className="orderIcon"
             size="2x"
+            className="cashRegisterIcon"
           />
-        </div>
-      </Link> */}
+        )}
+      </Link>
+
+      {curUser && (
+        <button onClick={handleLogout} className="signoutBtn">
+          Sign Out
+        </button>
+      )}
     </div>
   );
 }
