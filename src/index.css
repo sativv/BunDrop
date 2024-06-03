@@ -215,6 +215,10 @@ code {
   margin-right: 15px;
 }
 
+.favActive {
+  color: gold;
+}
+
 .backButtonContainer {
   display: flex;
   justify-content: space-between;

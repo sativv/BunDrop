@@ -13,6 +13,7 @@ function ProductDetails() {
   const { productId } = useParams();
   const { shopCart, setShopCart } = useContext(shopCartContext);
   const [itemQuantity, setItemQuantity] = useState(1);
+  const { curUser, setCurUser } = useContext(userContext);
   const nav = useNavigate();
 
   const totalPrice = (itemQuantity * product.price).toFixed(2);
@@ -35,6 +36,27 @@ function ProductDetails() {
       setItemQuantity(itemQuantity + 1);
     }
   }
+  function handleFavorites() {
+    const updatedUser = { ...curUser };
+
+    if (!updatedUser.favorites) {
+      updatedUser.favorites = [];
+    }
+
+    const productIndex = updatedUser.favorites.indexOf(product.id);
+
+    // check if the product is already in favorites
+    if (!updatedUser.favorites.includes(product.id)) {
+      // If not, add it to favorites
+      updatedUser.favorites.push(product.id);
+      setCurUser(updatedUser);
+    } else {
+      // remove from favorites
+      updatedUser.favorites.splice(productIndex, 1);
+    }
+
+    console.log(updatedUser.favorites);
+  }
 
   useEffect(() => {
     fetch(`http://localhost:3000/menu/${productId}`)
@@ -49,7 +71,17 @@ function ProductDetails() {
           <Link to={"/ourmenu"}>
             <FontAwesomeIcon icon={faArrowLeftLong} className="backButton" />
           </Link>
-          <FontAwesomeIcon icon={faStar} className="favIcon" />
+          <FontAwesomeIcon
+            icon={faStar}
+            className={
+              curUser &&
+              curUser.favorites &&
+              curUser.favorites.includes(product.id)
+                ? "favIcon favActive"
+                : "favIcon"
+            }
+            onClick={handleFavorites}
+          />
         </div>
         <h1>{product.name}</h1>
         <img src={"." + product.image} className="productDetailsImage" />

@@ -21,14 +21,14 @@ function Profile() {
   const curUserFavorites = curUser ? curUser.favorites : [];
 
   const favoriteItems = menu.filter((item) =>
-    curUserFavorites.some((favorite) => favorite.productId === item.id)
+    // curUserFavorites.some((favorite) => favorite.productId === item.id)
+    curUserFavorites.includes(item.id)
   );
 
   function signOut() {
     // Clear the current user and navigate to the login page
-    // setCurUser(null);
-    // nav("/login");
-    console.log(favoriteItems);
+    setCurUser(null);
+    nav("/login");
   }
 
   // Extract curUserFavorites from curUser
