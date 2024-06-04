@@ -79,6 +79,10 @@ p {
   box-sizing: border-box;
 }
 
+.productCard:hover {
+  border: 1px solid #bb86fc;
+}
+
 .productDetailsImage {
   width: 100%;
 }
@@ -180,6 +184,10 @@ p {
   color: #e1e1e1;
 }
 
+.cartButton:hover {
+  border: 2px solid #bb86fc;
+  cursor: pointer;
+}
 .bestSellers {
   display: flex;
   flex-wrap: wrap;
@@ -270,6 +278,11 @@ code {
   font-weight: bold;
 }
 
+.quantityButtons:hover {
+  border: 2px solid #bb86fc;
+  cursor: pointer;
+}
+
 .quantButtonContainer {
   display: flex;
   align-items: center;
@@ -284,6 +297,11 @@ code {
   background-color: #1e1e1e;
   border: 1px solid black;
   color: #e1e1e1;
+}
+
+.menuButtons:hover {
+  border: 1px solid #bb86fc;
+  cursor: pointer;
 }
 
 .filtering {
@@ -389,6 +407,10 @@ code {
 
 .cbButton {
   width: 150px;
+}
+
+.cbButton:hover {
+  border: 1px solid #bb86fc;
 }
 
 .cartHr {
