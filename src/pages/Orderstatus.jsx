@@ -5,7 +5,6 @@ import Header from "../components/Header";
 import { orderContext } from "../App";
 
 function OrderStatus() {
-  const [timer, setTimer] = useState(null);
   const nav = useNavigate();
   const { curOrder, setCurOrder } = useContext(orderContext);
 
@@ -26,7 +25,7 @@ function OrderStatus() {
       <Header />
       <div className="orderStatusContainer">
         <h1>Order Status</h1>
-        {/* {deliveryTime && <p>Estimated delivery time: {deliveryTime} minutes</p>} */}
+        <p>Estimated delivery time: {curOrder.deliveryTime}</p>
         <div className="orderStatusItemContainer">
           {curOrder.items?.map((item) => (
             <div key={item.id}>
