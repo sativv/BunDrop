@@ -60,7 +60,7 @@ function Swish() {
           </p>
           <div className="swishPrice">
             <p>Amount : </p>
-            <p>{price} €</p>
+            <p>{price.toFixed(2)} €</p>
           </div>
           <button type="submit" className="sendPayButton">
             Send Payment Request

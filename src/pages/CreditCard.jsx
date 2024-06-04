@@ -122,7 +122,7 @@ function CreditCardPayment() {
           </div>
           <div className="swishPrice">
             <p>Amount:</p>
-            <p>{price} €</p>
+            <p>{price.toFixed(2)} €</p>
           </div>
           <button type="submit" className="sendPayButton ccbtn">
             Pay with Credit Card
