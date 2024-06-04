@@ -79,6 +79,14 @@ p {
   box-sizing: border-box;
 }
 
+.productCard:hover {
+  border: 1px solid #bb86fc;
+}
+
+.productDetailsImage {
+  width: 100%;
+}
+
 .cardLeft {
   display: flex;
   flex-direction: column;
@@ -87,6 +95,7 @@ p {
 .swishlogo {
   width: 200px;
 }
+
 .mastercardlogo {
   width: 150px;
 }
@@ -109,10 +118,15 @@ p {
 
 .telInput {
   background-color: transparent;
-  border: 1px solid #e1e1e1;
+  border: 2px solid #e1e1e1;
   color: #e1e1e1;
   height: 25px;
   margin-left: 15px;
+}
+.telInput:focus {
+  border: 2px solid #bb86fc;
+  outline-style: none;
+  color: #bb86fc;
 }
 .swishPrice {
   display: flex;
@@ -129,10 +143,16 @@ p {
 .sendPayButton {
   background-color: transparent;
   color: #e1e1e1;
-  border: 1px solid #e1e1e1;
+  border: 2px solid #e1e1e1;
   font-weight: 600;
   height: 40px;
   width: 300px;
+}
+
+.sendPayButton:hover {
+  color: #bb86fc;
+  border: 2px solid #bb86fc;
+  cursor: pointer;
 }
 .caBtn {
   width: 300px;
@@ -144,6 +164,9 @@ p {
   width: 275px;
   text-align: left;
   margin-top: 15px;
+}
+.returnLink:hover {
+  color: #bb86fc;
 }
 .ccbtn {
   width: 330px;
@@ -176,6 +199,11 @@ p {
   color: #e1e1e1;
 }
 
+.cartButton:hover {
+  border: 2px solid #bb86fc;
+  cursor: pointer;
+  color: #bb86fc;
+}
 .bestSellers {
   display: flex;
   flex-wrap: wrap;
@@ -266,6 +294,12 @@ code {
   font-weight: bold;
 }
 
+.quantityButtons:hover {
+  border: 2px solid #bb86fc;
+  cursor: pointer;
+  color: #bb86fc;
+}
+
 .quantButtonContainer {
   display: flex;
   align-items: center;
@@ -280,6 +314,12 @@ code {
   background-color: #1e1e1e;
   border: 1px solid black;
   color: #e1e1e1;
+}
+
+.menuButtons:hover {
+  border: 1px solid #bb86fc;
+  cursor: pointer;
+  color: #bb86fc;
 }
 
 .filtering {
@@ -363,6 +403,7 @@ code {
   max-height: 65vh;
   min-height: 65vh;
   margin-top: 25px;
+  width: 100%;
 }
 
 .totalPrice {
@@ -386,6 +427,10 @@ code {
   width: 150px;
 }
 
+.cbButton:hover {
+  border: 1px solid #bb86fc;
+}
+
 .cartHr {
   margin-top: 0px;
   width: 100%;
@@ -395,14 +440,19 @@ code {
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  border-bottom: 1px solid #ccc;
+  max-width: 80%;
+  width: 100%;
+  /* border-bottom: 2px solid #e1e1e1; */
 }
 
 .cartItemContainer {
   display: flex;
   align-items: center;
+  justify-content: center;
   margin-left: 15px;
   margin-right: 15px;
+  max-width: 35%;
+  width: 100%;
 }
 
 .quantInput {
@@ -411,6 +461,9 @@ code {
 
 .price {
   margin-left: 10px;
+  max-width: 25%;
+  width: 100%;
+  text-align: right;
 }
 
 .cartProductName {
@@ -434,6 +487,7 @@ code {
 .label {
   width: 150px;
   text-align: left;
+  color: #e1e1e1;
 }
 
 .telInput {
@@ -451,6 +505,11 @@ code {
   height: 30px;
   font-size: 16px;
 }
+
+.caInput:focus {
+  border: 2px solid #bb86fc;
+  outline-style: none;
+}
 .caLbl {
   color: #e1e1e1;
   margin-top: 15px;
@@ -463,14 +522,25 @@ code {
   font-size: 18px;
   margin-top: 15px;
 }
-
+.caBtn:hover {
+  border: 2px solid #bb86fc;
+  color: #bb86fc;
+  cursor: pointer;
+}
 .expInputM,
 .expInputY {
   width: 75px;
   background-color: transparent;
-  border: 1px solid #e1e1e1;
+  border: 2px solid #e1e1e1;
   color: #e1e1e1;
   height: 25px;
+}
+
+.expInputM:focus,
+.expInputY:focus {
+  border: 2px solid #bb86fc;
+
+  outline-style: none;
 }
 
 .expInputM {
@@ -548,4 +618,85 @@ code {
 .signoutBtn:hover {
   color: red;
   cursor: pointer;
+}
+
+.adContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.addressFieldsContainer {
+  margin-top: 50px;
+}
+
+.addressFields {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.pmBtnContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.nameInput,
+.addressInput,
+.zipcodeInput,
+.cityInput {
+  background-color: transparent;
+  color: #e1e1e1;
+  border: 2px solid #e1e1e1;
+  height: 25px;
+}
+
+.nameInput:focus,
+.addressInput:focus,
+.zipcodeInput:focus,
+.cityInput:focus {
+  border: 2px solid #bb86fc;
+  color: #bb86fc;
+  outline-style: none;
+  max-width: 50%;
+  width: 100%;
+}
+
+@media only screen and (min-width: 720px) {
+  .productDetailsImage {
+    width: 25%;
+  }
+  .menuTop {
+    align-items: center;
+  }
+  .backButtonContainer {
+    width: 100%;
+  }
+
+  .menuContainer {
+    width: 60%;
+    margin: auto;
+  }
+
+  .App {
+  }
+
+  .price {
+    max-width: 20%;
+    width: 100%;
+  }
+  .cartItemContainer {
+    max-width: 35%;
+    width: 100%;
+  }
+
+  .cartProductName {
+    max-width: 25%;
+    width: 100%;
+  }
+  .cartContainer {
+    width: 60%;
+    margin: auto;
+  }
 }

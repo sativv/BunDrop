@@ -26,13 +26,13 @@ function ProductDetails() {
   }
 
   function handleDecrease() {
-    if (itemQuantity < 1) {
+    if (itemQuantity >= 1) {
       setItemQuantity(itemQuantity - 1);
     }
   }
 
   function handleIncrease() {
-    if (itemQuantity < 9) {
+    if (itemQuantity < 99) {
       setItemQuantity(itemQuantity + 1);
     }
   }
@@ -71,17 +71,17 @@ function ProductDetails() {
           <Link to={"/ourmenu"}>
             <FontAwesomeIcon icon={faArrowLeftLong} className="backButton" />
           </Link>
-          <FontAwesomeIcon
-            icon={faStar}
-            className={
-              curUser &&
-              curUser.favorites &&
-              curUser.favorites.includes(product.id)
-                ? "favIcon favActive"
-                : "favIcon"
-            }
-            onClick={handleFavorites}
-          />
+          {curUser && (
+            <FontAwesomeIcon
+              icon={faStar}
+              className={
+                curUser.favorites && curUser.favorites.includes(product.id)
+                  ? "favIcon favActive"
+                  : "favIcon"
+              }
+              onClick={handleFavorites}
+            />
+          )}
         </div>
         <h1>{product.name}</h1>
         <img src={"." + product.image} className="productDetailsImage" />

@@ -21,7 +21,7 @@ function Header() {
           alt="company logotype"
         />
       </Link>
-      <Link to={"/orderstatus"}>
+      {/* <Link to={"/orderstatus"}>
         {curOrder && (
           <FontAwesomeIcon
             icon={faCashRegister}
@@ -29,7 +29,7 @@ function Header() {
             className="cashRegisterIcon"
           />
         )}
-      </Link>
+      </Link> */}
 
       {curUser && (
         <button onClick={handleLogout} className="signoutBtn">

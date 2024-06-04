@@ -21,8 +21,8 @@ function Checkout() {
             className="mastercardlogo"
           />
         </Link>
-        <Link to={"/cart"}>
-          <p className="returnToCart">return to cart</p>
+        <Link to={"/address"}>
+          <p className="returnToCart">return</p>
         </Link>
       </div>
       <Footer></Footer>

@@ -20,12 +20,26 @@ function Swish() {
     );
     if (isConfirmed) {
       console.log("accepted");
+      //
       // create random delivery time
       const deliveryTimeMinutes = Math.floor(Math.random() * 16) + 20;
+
+      const date = new Date();
+      const hours = date.getHours();
+      const minutes = date.getMinutes();
+      const currentTime = `${hours}:${minutes}`;
+      // test
+      // add randomly gen time to newMinutes
+      const newMinutes = minutes + deliveryTimeMinutes;
+      const newHours = hours + Math.floor(newMinutes / 60);
+      const adjustedMinutes = newMinutes % 60;
+
+      const newTime = `${newHours}:${adjustedMinutes}`;
+
       // set order context
       const newOrder = {
         items: shopCart,
-        deliveryTime: deliveryTimeMinutes,
+        deliveryTime: newTime,
       };
       setCurOrder(newOrder);
 
@@ -60,7 +74,7 @@ function Swish() {
           </p>
           <div className="swishPrice">
             <p>Amount : </p>
-            <p>{price} €</p>
+            <p>{price.toFixed(2)} €</p>
           </div>
           <button type="submit" className="sendPayButton">
             Send Payment Request

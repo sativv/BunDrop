@@ -37,13 +37,25 @@ function CreditCardPayment() {
         setErrorMessage("Please enter a valid expiration date.");
         return;
       }
-
       // create random delivery time
+      //test
       const deliveryTimeMinutes = Math.floor(Math.random() * 16) + 20;
+      const date = new Date();
+      const hours = date.getHours();
+      const minutes = date.getMinutes();
+      const currentTime = `${hours}:${minutes}`;
+
+      // add randomly gen time to newMinutes
+      const newMinutes = minutes + deliveryTimeMinutes;
+      const newHours = hours + Math.floor(newMinutes / 60);
+      const adjustedMinutes = newMinutes % 60;
+
+      const newTime = `${newHours}:${adjustedMinutes}`;
+
       // set order context
       const newOrder = {
         items: shopCart,
-        deliveryTime: deliveryTimeMinutes,
+        deliveryTime: newTime,
       };
       setCurOrder(newOrder);
 
@@ -122,7 +134,7 @@ function CreditCardPayment() {
           </div>
           <div className="swishPrice">
             <p>Amount:</p>
-            <p>{price} €</p>
+            <p>{price.toFixed(2)} €</p>
           </div>
           <button type="submit" className="sendPayButton ccbtn">
             Pay with Credit Card

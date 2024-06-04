@@ -12,6 +12,7 @@ import { createContext, useState } from "react";
 import Swish from "./pages/Swish";
 import CreditCard from "./pages/CreditCard";
 import OrderStatus from "./pages/Orderstatus";
+import AdressOrder from "./pages/AdressOrder";
 
 export const shopCartContext = createContext();
 export const userContext = createContext();
@@ -40,6 +41,7 @@ function App() {
               <Route path="/credit" element={<CreditCard />} />
               <Route path="/orderstatus" element={<OrderStatus />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/address" element={<AdressOrder />} />
             </Routes>
           </Router>{" "}
         </orderContext.Provider>
