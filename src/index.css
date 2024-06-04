@@ -95,6 +95,7 @@ p {
 .swishlogo {
   width: 200px;
 }
+
 .mastercardlogo {
   width: 150px;
 }
@@ -117,10 +118,14 @@ p {
 
 .telInput {
   background-color: transparent;
-  border: 1px solid #e1e1e1;
+  border: 2px solid #e1e1e1;
   color: #e1e1e1;
   height: 25px;
   margin-left: 15px;
+}
+.telInput:focus {
+  border: 2px solid #bb86fc;
+  outline-style: none;
 }
 .swishPrice {
   display: flex;
@@ -137,10 +142,16 @@ p {
 .sendPayButton {
   background-color: transparent;
   color: #e1e1e1;
-  border: 1px solid #e1e1e1;
+  border: 2px solid #e1e1e1;
   font-weight: 600;
   height: 40px;
   width: 300px;
+}
+
+.sendPayButton:hover {
+  color: #bb86fc;
+  border: 2px solid #bb86fc;
+  cursor: pointer;
 }
 .caBtn {
   width: 300px;
@@ -152,6 +163,9 @@ p {
   width: 275px;
   text-align: left;
   margin-top: 15px;
+}
+.returnLink:hover {
+  color: #bb86fc;
 }
 .ccbtn {
   width: 330px;
@@ -187,6 +201,7 @@ p {
 .cartButton:hover {
   border: 2px solid #bb86fc;
   cursor: pointer;
+  color: #bb86fc;
 }
 .bestSellers {
   display: flex;
@@ -281,6 +296,7 @@ code {
 .quantityButtons:hover {
   border: 2px solid #bb86fc;
   cursor: pointer;
+  color: #bb86fc;
 }
 
 .quantButtonContainer {
@@ -302,6 +318,7 @@ code {
 .menuButtons:hover {
   border: 1px solid #bb86fc;
   cursor: pointer;
+  color: #bb86fc;
 }
 
 .filtering {
@@ -486,6 +503,11 @@ code {
   height: 30px;
   font-size: 16px;
 }
+
+.caInput:focus {
+  border: 2px solid #bb86fc;
+  outline-style: none;
+}
 .caLbl {
   color: #e1e1e1;
   margin-top: 15px;
@@ -498,14 +520,25 @@ code {
   font-size: 18px;
   margin-top: 15px;
 }
-
+.caBtn:hover {
+  border: 2px solid #bb86fc;
+  color: #bb86fc;
+  cursor: pointer;
+}
 .expInputM,
 .expInputY {
   width: 75px;
   background-color: transparent;
-  border: 1px solid #e1e1e1;
+  border: 2px solid #e1e1e1;
   color: #e1e1e1;
   height: 25px;
+}
+
+.expInputM:focus,
+.expInputY:focus {
+  border: 2px solid #bb86fc;
+
+  outline-style: none;
 }
 
 .expInputM {
