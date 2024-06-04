@@ -20,6 +20,7 @@ function Swish() {
     );
     if (isConfirmed) {
       console.log("accepted");
+      //
       // create random delivery time
       const deliveryTimeMinutes = Math.floor(Math.random() * 16) + 20;
 

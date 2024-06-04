@@ -38,6 +38,7 @@ function CreditCardPayment() {
         return;
       }
       // create random delivery time
+      //
       const deliveryTimeMinutes = Math.floor(Math.random() * 16) + 20;
       const date = new Date();
       const hours = date.getHours();

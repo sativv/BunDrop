@@ -13,6 +13,7 @@ function OrderStatus() {
     nav("/ourmenu");
   }
 
+  //
   // Redirect if curOrder doesn't exist
   useEffect(() => {
     if (curOrder === null) {
