@@ -28,7 +28,7 @@ function Swish() {
       const hours = date.getHours();
       const minutes = date.getMinutes();
       const currentTime = `${hours}:${minutes}`;
-
+      // test
       // add randomly gen time to newMinutes
       const newMinutes = minutes + deliveryTimeMinutes;
       const newHours = hours + Math.floor(newMinutes / 60);
