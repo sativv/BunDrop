@@ -14,7 +14,7 @@ function Cart() {
   function handleNav() {
     console.log(shopCart.length);
     if (shopCart.length > 0) {
-      nav("/checkout");
+      nav("/address");
     } else {
       nav("/ourmenu");
     }

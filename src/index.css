@@ -126,6 +126,7 @@ p {
 .telInput:focus {
   border: 2px solid #bb86fc;
   outline-style: none;
+  color: #bb86fc;
 }
 .swishPrice {
   display: flex;
@@ -486,6 +487,7 @@ code {
 .label {
   width: 150px;
   text-align: left;
+  color: #e1e1e1;
 }
 
 .telInput {
@@ -616,6 +618,49 @@ code {
 .signoutBtn:hover {
   color: red;
   cursor: pointer;
+}
+
+.adContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.addressFieldsContainer {
+  margin-top: 50px;
+}
+
+.addressFields {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.pmBtnContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.nameInput,
+.addressInput,
+.zipcodeInput,
+.cityInput {
+  background-color: transparent;
+  color: #e1e1e1;
+  border: 2px solid #e1e1e1;
+  height: 25px;
+}
+
+.nameInput:focus,
+.addressInput:focus,
+.zipcodeInput:focus,
+.cityInput:focus {
+  border: 2px solid #bb86fc;
+  color: #bb86fc;
+  outline-style: none;
+  max-width: 50%;
+  width: 100%;
 }
 
 @media only screen and (min-width: 720px) {
