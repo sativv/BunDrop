@@ -17,7 +17,7 @@ function CreditCardPayment() {
 
   const price = calculateTotalPrice(shopCart);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     // handle number input
     event.preventDefault();
     const isConfirmed = window.confirm(
@@ -58,6 +58,14 @@ function CreditCardPayment() {
         deliveryTime: newTime,
       };
       setCurOrder(newOrder);
+
+      const postReponse = await fetch("http://localhost:3000/orders", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newOrder),
+      });
 
       // clear cart
 
