@@ -1,70 +1,21 @@
-# Getting Started with Create React App
+Instruktioner för att starta projektet
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+```csharp
+npm install
+npx json-server --watch db.json
+npm run start-set-port
+```
 
-## Available Scripts
+## Projektanalys
 
-In the project directory, you can run:
+I detta projektet har jag skapat en hemsida för en hamburgerrestaurang där man kan registrera sig, bläddra i meny, lägga till i varukorg och simulera en beställning med fejk leverans & betalnings information.
 
-### `npm start`
+Jag valde att använda mig utav react då jag är bekvämast med det och tror att det är ramverket som jag kommer använda mig utav mest i framtiden.  Jag använder endast en simpel json-server som databas och hanterar all min data mellan sidorna med hjälp utav react context. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Jag började med att skapa en figma design med fokus på en mobil-version då det oftast är lättast att skala upp i efterhand istället för tvärtom. I tidigare projekt då jag ej har börjat med den mobilanpassade deisgnen har jag alltid haft mycket problem med att få min applikation till att se ut som jag vill, så jag är nöjd med hur det blev i detta fallet. Det slutade med att jag inte behövde använda mig utav speciellt mycket media-queries då i princip allting gjordes responsivt till att börja med. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+I efterhand så skulle jag tagit mig an custom hooks för att underlätta i vissa delar och minimera kod för t.ex. mina interaktioner med “databasen” då det alltid blir väldigt repetitiv kod. Jag hade även försökt minimera hur många context jag använder för att hantera all min information mellan sidobyten. Det slutade med att jag hade ett context för användare, ett för kundvagn och ett för beställningar. Eftersom jag använder mig utav react context så försvinner den sparade datan i contexten om man manuellt uppdaterar sidan, detta kunde jag undvikt om jag använt mig utav localstorage istället. Anledningen till att jag valde att använda context över localstorage är helt enkelt att jag tidigare har använt localstorage men ej context, och jag ville lära mig någonting nytt. Det finns såklart för och nackdelar med båda metoderna. 
 
-### `npm test`
+Jag är inte speciellt nöjd med min kods struktur men det är förväntat när jag använder mig utav massor av nya metoder/tekniker som jag ej rört tidigare. Detta lär jag gå igenom och städa upp vid senare tillfälle. Vissa saker skulle kunnat gjorts till komponenter för att reducera antalet sidor, som t.ex utchecknings delen där swish och kredit kort kunde kombinerats som en komponent och lagts in på en av sidorna i beställningsprocessen. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Designmässigt hade jag kanske gett lite mer “liv” till sidan, t.ex. någon större bild med lite färger på hemsidan. Jag fokuserade på att göra sidan lätt att använda utan för mycket distraktioner eller förvirrande komponenter.
