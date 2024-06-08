@@ -174,7 +174,11 @@
       "id": "1",
       "username": "user",
       "password": "password",
-      "favorites": ["1", "2", "3"]
+      "favorites": [
+        "1",
+        "2",
+        "3"
+      ]
     },
     {
       "id": "3611",
@@ -190,6 +194,22 @@
       "id": "ab33",
       "username": "tj",
       "password": "asdasd1"
+    }
+  ],
+  "orders": [
+    {},
+    {
+      "id": "2ecc",
+      "items": [
+        {
+          "id": "5",
+          "price": 10.99,
+          "name": "BBQ Bacon Burger",
+          "qty": 1,
+          "image": "./images/bbqburger.png"
+        }
+      ],
+      "deliveryTime": "22:46"
     }
   ]
 }

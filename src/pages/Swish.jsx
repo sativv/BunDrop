@@ -12,7 +12,7 @@ function Swish() {
   const nav = useNavigate();
 
   const price = calculateTotalPrice(shopCart);
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     // handle number input
     event.preventDefault();
     const isConfirmed = window.confirm(
@@ -41,6 +41,15 @@ function Swish() {
         items: shopCart,
         deliveryTime: newTime,
       };
+
+      const postReponse = await fetch("http://localhost:3000/orders", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newOrder),
+      });
+
       setCurOrder(newOrder);
 
       // clear cart
